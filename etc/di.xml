@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Kdev\CustomOrderNote\Api\Data\CustomOrderNoteInterface"
+                type="Kdev\CustomOrderNote\Model\CustomOrderNote"/>
+    <preference for="Kdev\CustomOrderNote\Api\CustomOrderNoteRepositoryInterface"
+                type="Kdev\CustomOrderNote\Model\CustomOrderNoteRepository"/>
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="add_custom_order_note_field" type="Kdev\CustomOrderNote\Plugin\Checkout\Block\Checkout\LayoutProcessor" />
+    </type>
+    <type name="Magento\Quote\Model\Quote\Address">
+        <plugin name="prepare_extension_attribute" type="Kdev\CustomOrderNote\Plugin\Quote\Model\Quote\Address" />
+    </type>
+    <type name="Magento\Sales\Model\OrderRepository">
+        <plugin name="extension_attributes_operations" type="Kdev\CustomOrderNote\Plugin\Sales\Model\OrderRepository" />
+    </type>
+    <type name="Magento\Sales\Model\Order">
+        <plugin name="copy_custom_order_note" type="Kdev\CustomOrderNote\Plugin\Sales\Model\Order" />
+    </type>
+</config>

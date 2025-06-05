@@ -1,0 +1,20 @@
+{
+    "custom_order_note": {
+        "column": {
+            "note_id": true,
+            "order_id": true,
+            "value": true
+        },
+        "index": {
+            "CUSTOM_ORDER_NOTE_ORDER_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "quote_address": {
+        "column": {
+            "custom_order_note": true
+        }
+    }
+}

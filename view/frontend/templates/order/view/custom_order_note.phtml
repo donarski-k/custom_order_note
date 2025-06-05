@@ -1,0 +1,15 @@
+<?php
+/** @var Magento\Sales\Block\Order\Info $block */
+/** @var \Magento\Framework\Escaper $escaper */
+$note = $block->getOrder()?->getExtensionAttributes()?->getCustomOrderNote();
+?>
+<?php if ($note): ?>
+<div class="box">
+    <strong class="box-title">
+        <span><?= $escaper->escapeHtml(__('Custom Order Date')) ?></span>
+    </strong>
+    <div class="box-content">
+        <span><?= $escaper->escapeHtml($note) ?></span>
+    </div>
+</div>
+<?php endif; ?>

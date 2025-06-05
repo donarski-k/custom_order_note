@@ -1,0 +1,11 @@
+<?php
+/** @var \Magento\Sales\Block\Adminhtml\Order\View\Info $block */
+/** @var \Magento\Framework\Escaper $escaper */
+$note = $block->getOrder()?->getExtensionAttributes()?->getCustomOrderNote();
+?>
+<?php if ($note): ?>
+<tr>
+    <th><?= $escaper->escapeHtml(__('Custom Order Note')) ?></th>
+    <td><?= $block->escapeHtml($note) ?></td>
+</tr>
+<?php endif; ?>
